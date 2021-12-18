@@ -81,11 +81,59 @@ class ViewController: UIViewController, SCNCameraControllerDelegate
         
         if isEarth
         {
+            planetNode.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "day")
+            planetNode.geometry?.firstMaterial?.normal.contents = UIImage(named: "normal")
+            planetNode.geometry?.firstMaterial?.specular.contents = UIImage(named: "spec")
+            planetNode.geometry?.firstMaterial?.specular.intensity = 0.8
             
+            let emissionTexture = UIImage(named: "night")
+            let nightMapForEmission = SCNMaterialProperty(contents: emissionTexture!)
+            planetNode.geometry?.setValue(nightMapForEmission, forKey: "emissionTexture")
+            planetNode.geometry?.shaderModifiers = [.fragment: shaderModifier]
         }
         else
         {
             guard let planetTexture = textureName else { return }
+            
+            planetNode.geometry?.firstMaterial?.diffuse.contents = UIImage(named: planetTexture)
+        }
+        
+        if isPlanet
+        {
+            guard let duration = animatitionDuration else { return }
+            let rotation = SCNAction.rotate(by: 360*CGFloat((CGFloat.pi) / 180),
+                                        around: SCNVector3(.zero, 1, .zero),
+                                        duration: duration)
+            
+            let repeatRotation = SCNAction.repeatForever(rotation)
+            planetNode.runAction(repeatRotation)
+        }
+        else
+        {
+            guard let sunTexture = textureName else { return }
+            planetNode.geometry?.firstMaterial?.selfIllumination.contents = UIImage(named: sunTexture)
+            planetNode.geometry?.firstMaterial?.selfIllumination.intensity = 5.0
+            planetNode.geometry?.firstMaterial?.emission.contents = UIImage(named: sunTexture)
+            planetNode.geometry?.firstMaterial?.emission.intensity = 5.0
+        }
+        
+        if hasRing
+        {
+            let ringNode = SCNNode()
+            ringNode.geometry = SCNTube(innerRadius: 0.45, outerRadius: 0.6, height: 0.005)
+            ringNode.position = planetNode.position
+            ringNode.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "saturnRing")
+            ringNode.rotation = planetNode.rotation
+            
+            if scene != nil
+            {
+                scene?.rootNode.addChildNode(ringNode)
+            }
+        }
+        
+        if scene != nil
+        {
+            scene?.rootNode.addChildNode(planetNode)
         }
     }
 }
