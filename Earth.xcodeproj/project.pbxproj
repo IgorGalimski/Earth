@@ -16,6 +16,9 @@
 		73A78B7F2590CF190079FA68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73A78B7D2590CF190079FA68 /* LaunchScreen.storyboard */; };
 		73A78B8A2590D0720079FA68 /* backgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 73A78B892590D0720079FA68 /* backgroundMusic.mp3 */; };
 		73DC6F5A25BD875E00ADFE00 /* ShaderModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DC6F5925BD875E00ADFE00 /* ShaderModifier.swift */; };
+		F8259C99276DCBEF00684C39 /* ViewControllerPlanetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8259C98276DCBEF00684C39 /* ViewControllerPlanetExtension.swift */; };
+		F8259C9B276DCE0600684C39 /* StartAndAudioExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8259C9A276DCE0600684C39 /* StartAndAudioExtension.swift */; };
+		F8259C9E276DCF3000684C39 /* StarField.scn in Resources */ = {isa = PBXBuildFile; fileRef = F8259C9D276DCF3000684C39 /* StarField.scn */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		73A78B802590CF190079FA68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73A78B892590D0720079FA68 /* backgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundMusic.mp3; sourceTree = "<group>"; };
 		73DC6F5925BD875E00ADFE00 /* ShaderModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderModifier.swift; sourceTree = "<group>"; };
+		F8259C98276DCBEF00684C39 /* ViewControllerPlanetExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPlanetExtension.swift; sourceTree = "<group>"; };
+		F8259C9A276DCE0600684C39 /* StartAndAudioExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartAndAudioExtension.swift; sourceTree = "<group>"; };
+		F8259C9D276DCF3000684C39 /* StarField.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = StarField.scn; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +76,8 @@
 		73A78B712590CF180079FA68 /* Earth */ = {
 			isa = PBXGroup;
 			children = (
+				F8259C9C276DCEF900684C39 /* ParticleSystem */,
+				F8259C97276DCBC400684C39 /* Extensions */,
 				73DC6F5825BD874D00ADFE00 /* ShaderModifier */,
 				735042DC25BAFE71003B3BEC /* StarImage */,
 				73A78B882590D0670079FA68 /* SoundFiles */,
@@ -98,6 +106,23 @@
 				73DC6F5925BD875E00ADFE00 /* ShaderModifier.swift */,
 			);
 			path = ShaderModifier;
+			sourceTree = "<group>";
+		};
+		F8259C97276DCBC400684C39 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F8259C98276DCBEF00684C39 /* ViewControllerPlanetExtension.swift */,
+				F8259C9A276DCE0600684C39 /* StartAndAudioExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F8259C9C276DCEF900684C39 /* ParticleSystem */ = {
+			isa = PBXGroup;
+			children = (
+				F8259C9D276DCF3000684C39 /* StarField.scn */,
+			);
+			path = ParticleSystem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +185,7 @@
 				73A78B7F2590CF190079FA68 /* LaunchScreen.storyboard in Resources */,
 				735042DE25BAFE92003B3BEC /* star.png in Resources */,
 				73A78B7C2590CF190079FA68 /* Assets.xcassets in Resources */,
+				F8259C9E276DCF3000684C39 /* StarField.scn in Resources */,
 				73A78B8A2590D0720079FA68 /* backgroundMusic.mp3 in Resources */,
 				73A78B7A2590CF180079FA68 /* Main.storyboard in Resources */,
 			);
@@ -173,7 +199,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				73A78B772590CF180079FA68 /* ViewController.swift in Sources */,
+				F8259C9B276DCE0600684C39 /* StartAndAudioExtension.swift in Sources */,
 				73DC6F5A25BD875E00ADFE00 /* ShaderModifier.swift in Sources */,
+				F8259C99276DCBEF00684C39 /* ViewControllerPlanetExtension.swift in Sources */,
 				73A78B732590CF180079FA68 /* AppDelegate.swift in Sources */,
 				73A78B752590CF180079FA68 /* SceneDelegate.swift in Sources */,
 			);
@@ -323,8 +351,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GX4395UWKU;
 				INFOPLIST_FILE = Earth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -345,8 +373,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GX4395UWKU;
 				INFOPLIST_FILE = Earth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

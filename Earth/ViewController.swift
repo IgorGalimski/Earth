@@ -25,6 +25,8 @@ class ViewController: UIViewController, SCNCameraControllerDelegate
         SetupSceneView()
         SetupLight()
         SetupCamera()
+        SetupAllPlanets()
+        AddStars()
     }
     
     func SetupSceneView()
@@ -71,7 +73,7 @@ class ViewController: UIViewController, SCNCameraControllerDelegate
     }
     
     func GeneratePlanet(nodeName: String, textureName: String?, isPlanet: Bool,
-                        isEarth: Bool, hasRing: Bool, animatitionDuration: Double?,
+                        isEarth: Bool, hasRing: Bool, animationDuration: Double?,
                         radius: CGFloat, x: CGFloat, y: CGFloat, z: CGFloat)
     {
         let planetNode = SCNNode()
@@ -100,7 +102,7 @@ class ViewController: UIViewController, SCNCameraControllerDelegate
         
         if isPlanet
         {
-            guard let duration = animatitionDuration else { return }
+            guard let duration = animationDuration else { return }
             let rotation = SCNAction.rotate(by: 360*CGFloat((CGFloat.pi) / 180),
                                         around: SCNVector3(.zero, 1, .zero),
                                         duration: duration)
